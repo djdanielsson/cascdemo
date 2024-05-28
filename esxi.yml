@@ -1,0 +1,10 @@
+---
+plugin: community.esxi.esxi_inventory
+hostname: '192.168.1.229'
+username: 'root'
+group_by:
+  - guestfamily
+  - guestid
+  - geststate
+  - notes
+...

@@ -1,0 +1,26 @@
+---
+controller_configuration_projects_async_retries: 190
+
+controller_projects_all:
+  - name: config_as_code
+    description: execution environments configurations
+    organization: config_as_code
+    scm_type: git
+    scm_url: git@github.com:djdanielsson/config_as_code.git
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_credential: "github"
+    update_project: true
+    wait: true
+
+  - name: lab
+    description: execution environments configurations
+    organization: config_as_code
+    scm_type: git
+    scm_url: git@github.com:djdanielsson/lab.git
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_credential: "github"
+    update_project: false
+    wait: true
+...

@@ -1,0 +1,14 @@
+---
+collections:
+  - name: infra.controller_configuration
+  - name: infra.ah_configuration
+  - name: infra.ee_utilities
+  - name: infra.aap_utilities
+  - name: containers.podman
+  # - name: ansible.controller
+  - name: awx.awx
+  - name: community.general
+  - name: infra.eda_configuration
+    type: git
+    source: https://github.com/djdanielsson/eda_configuration.git
+...

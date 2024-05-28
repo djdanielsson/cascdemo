@@ -1,0 +1,12 @@
+---
+controller_inventories_all:
+  - name: config_as_code
+    description: inventory for configuring controller
+    organization: config_as_code
+  - name: lab
+    description: inventory for configuring controller
+    organization: config_as_code
+  - name: localhost
+    description: inventory for configuring controller
+    organization: config_as_code
+...

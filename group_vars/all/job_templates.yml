@@ -1,0 +1,160 @@
+---
+controller_templates_all:
+  - name: controller_config
+    project: config_as_code
+    job_type: run
+    playbook: playbooks/controller_config.yml
+    inventory: config_as_code
+    execution_environment: supported
+    concurrent_jobs_enabled: false
+    ask_variables_on_launch: true
+    verbosity: 0
+    credentials:
+      - aap_admin
+      - ah_token_user
+      - vault
+    extra_vars:
+      # for debugging errors with creds change to false
+      controller_configuration_credentials_secure_logging: true
+
+  - name: ah_config
+    project: config_as_code
+    job_type: run
+    playbook: playbooks/hub_config.yml
+    inventory: config_as_code
+    execution_environment: supported
+    concurrent_jobs_enabled: false
+    verbosity: 0
+    credentials:
+      - ah_token_user
+      - vault
+
+  - name: eda_config
+    project: config_as_code
+    job_type: run
+    playbook: playbooks/eda_config.yml
+    inventory: config_as_code
+    execution_environment: supported
+    concurrent_jobs_enabled: false
+    ask_variables_on_launch: true
+    verbosity: 0
+    credentials:
+      - vault
+
+  - name: build_execution_environments
+    project: config_as_code
+    job_type: run
+    playbook: playbooks/build_ee.yml
+    inventory: config_as_code
+    execution_environment: supported
+    concurrent_jobs_enabled: false
+    verbosity: 0
+    credentials:
+      - root
+      - ah_admin_user_pass
+
+  - name: build_custom_collections
+    project: config_as_code
+    job_type: run
+    playbook: playbooks/custom_collection.yml
+    inventory: config_as_code
+    execution_environment: supported
+    concurrent_jobs_enabled: false
+    verbosity: 0
+    credentials:
+      - root
+      - ah_token_user
+
+  - name: console_token_refresh
+    project: config_as_code
+    job_type: run
+    playbook: playbooks/console_token_refresh.yml
+    inventory: config_as_code
+    execution_environment: minimal
+    concurrent_jobs_enabled: false
+    verbosity: 0
+    credentials:
+      - vault
+
+  - name: collection_sync
+    project: config_as_code
+    job_type: run
+    playbook: playbooks/sync_collections.yml
+    inventory: config_as_code
+    execution_environment: minimal
+    concurrent_jobs_enabled: false
+    verbosity: 0
+    credentials:
+      - ah_token_user
+      - vault
+
+  - name: deploy_kasm
+    project: lab
+    job_type: run
+    playbook: playbooks/deploy_kasm.yml
+    inventory: lab
+    execution_environment: minimal
+    concurrent_jobs_enabled: false
+    limit: "kasm*"
+    ask_limit_on_launch: true
+    become_enabled: true
+    verbosity: 0
+    credentials:
+      - welcome
+
+  - name: deploy_portainer
+    project: lab
+    job_type: run
+    playbook: playbooks/deploy_portainer.yml
+    inventory: lab
+    execution_environment: minimal
+    concurrent_jobs_enabled: false
+    limit: "portainer*"
+    ask_limit_on_launch: true
+    become_enabled: true
+    verbosity: 0
+    credentials:
+      - ubuntu
+
+  - name: deploy_terraform
+    project: lab
+    job_type: run
+    playbook: playbooks/deploy_terraform.yml
+    inventory: lab
+    execution_environment: minimal
+    concurrent_jobs_enabled: false
+    limit: "builder*"
+    ask_limit_on_launch: true
+    verbosity: 0
+    credentials:
+      - welcome
+      - vault2
+
+  - name: deploy_vault
+    project: lab
+    job_type: run
+    playbook: playbooks/deploy_vault.yml
+    inventory: lab
+    execution_environment: minimal
+    concurrent_jobs_enabled: false
+    limit: "vault*"
+    ask_limit_on_launch: true
+    become_enabled: true
+    verbosity: 0
+    credentials:
+      - welcome
+
+  - name: install_docker_ubuntu
+    project: lab
+    job_type: run
+    playbook: playbooks/install_docker_ubuntu.yml
+    inventory: lab
+    execution_environment: minimal
+    concurrent_jobs_enabled: false
+    limit: ""
+    ask_limit_on_launch: true
+    become_enabled: true
+    verbosity: 0
+    credentials:
+      - welcome
+...

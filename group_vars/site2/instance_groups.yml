@@ -1,0 +1,4 @@
+---
+controller_instance_groups_site2: []
+#   - name: test_instance_group
+...

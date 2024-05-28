@@ -1,0 +1,32 @@
+---
+- name: Playbook to prep server for AAP install
+  hosts: all:!builder:!dev
+  vars_files:
+    - "../vaults/{{ env }}.yml"
+  become: true
+  tasks:
+    - name: Attempt to register with module
+      block:
+        - name: Register RHEL
+          community.general.redhat_subscription:
+            username: "{{ rh_username }}"
+            password: "{{ rh_password }}"
+            state: present
+            force_register: true
+      rescue:
+        - name: Force register with command
+          ansible.builtin.command: subscription-manager register --username="{{ rh_username }}" --password="{{ rh_password }}" --force
+          changed_when: true
+          no_log: true
+
+    - name: Update system to latest
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+      register: r_updates
+
+    - name: Reboot system when there are updates
+      ansible.builtin.reboot:
+      when: r_updates['changed'] # noqa no-handler
+
+...
