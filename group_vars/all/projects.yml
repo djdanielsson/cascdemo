@@ -17,7 +17,7 @@ controller_projects_all:
     description: execution environments configurations
     organization: config_as_code
     scm_type: git
-    scm_url: git@github.com:djdanielsson/lab.git
+    scm_url: git@git.lab.danielsson.us.com:david/lab.git
     scm_clean: true
     scm_update_on_launch: true
     scm_credential: "github"
