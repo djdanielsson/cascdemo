@@ -1,3 +1,6 @@
 ---
-controller_user_accounts_site2: []
+controller_user_accounts_site2:
+  - user: site2
+    is_superuser: false
+    password: '{{ controller_api_user_pass }}'
 ...
