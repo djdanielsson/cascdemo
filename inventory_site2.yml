@@ -8,27 +8,23 @@ all:
         connection: local
     automationcontroller:
       hosts:
-        192.168.2.202
-        # ontrollernode1.lab.danielsson.us.com:
+        192.168.2.183
 
     automationhub:
       hosts:
-        192.168.2.150
-        # hubnode1.lab.danielsson.us.com:
+        192.168.2.147
 
     automationedacontroller:
       hosts:
-        192.168.2.188
+        192.168.2.175
 
     builder:
       hosts:
-        192.168.2.42
-        # builder.lab.danielsson.us.com:
+        192.168.2.65
 
     database:
       hosts:
-        192.168.2.93
-        # aapdb.lab.danielsson.us.com:
+        192.168.2.211
   vars:
     env: site2
 ...

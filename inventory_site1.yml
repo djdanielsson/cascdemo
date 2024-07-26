@@ -8,23 +8,23 @@ all:
         connection: local
     automationcontroller:
       hosts:
-        192.168.2.111:
+        192.168.2.231:
 
     automationhub:
       hosts:
-        192.168.2.111:
+        192.168.2.231:
 
     automationeda:
       hosts:
-        192.168.2.111:
+        192.168.2.231:
 
     builder:
       hosts:
-        192.168.2.111:
+        192.168.2.231:
 
     database:
       hosts:
-        192.168.2.111:
+        192.168.2.231:
   vars:
     env: site1
 ...
