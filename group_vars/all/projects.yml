@@ -9,7 +9,7 @@ controller_projects_all:
     scm_url: http://git.lab.danielsson.us.com/david/config.git
     scm_clean: true
     scm_update_on_launch: true
-    scm_credential: "gitea"
+    scm_credential: "github"
     update_project: true
     wait: true
 
@@ -20,7 +20,7 @@ controller_projects_all:
     scm_url: http://git.lab.danielsson.us.com/david/lab.git
     scm_clean: true
     scm_update_on_launch: true
-    scm_credential: "gitea"
+    scm_credential: "github"
     update_project: false
     wait: true
 ...
