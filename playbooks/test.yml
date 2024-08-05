@@ -1,0 +1,20 @@
+---
+- name: Test5
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Test
+      ansible.builtin.debug:
+        msg: "test"
+      register: r_test
+
+    - name: Test2
+      ansible.builtin.fail:
+      register: r_test2
+      when: 'inventory_hostname == "localhost"'
+
+    - name: Test3
+      ansible.builtin.debug:
+        msg: "{% if hostvars[item]['r_test2']['failed'] %}{{ item }}: {{ hostvars[item]['r_test2']['msg'] }}{% endif %}"
+      loop: "{{ ansible_play_hosts_all | difference(ansible_play_hosts) }}"
+...
