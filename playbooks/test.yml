@@ -20,5 +20,5 @@
 
     - name: Test4
       ansible.builtin.debug:
-        msg: "{{ lookup('ansible.builtin.vars', 'awx_*') }}"
+        msg: "{{ lookup('ansible.builtin.varnames', 'awx_*') }}"
 ...
