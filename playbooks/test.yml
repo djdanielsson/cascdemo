@@ -17,4 +17,8 @@
       ansible.builtin.debug:
         msg: "{% if hostvars[item]['r_test2']['failed'] %}{{ item }}: {{ hostvars[item]['r_test2']['msg'] }}{% endif %}"
       loop: "{{ ansible_play_hosts_all | difference(ansible_play_hosts) }}"
+
+    - name: Test4
+      ansible.builtin.debug:
+        msg: "{{ lookup('ansible.builtin.vars', 'awx_') }}"
 ...
