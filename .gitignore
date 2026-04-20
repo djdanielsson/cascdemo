@@ -1,3 +1,9 @@
 .password
 ansible.cfg
-.vscode
+.vscode.env
+.env.*
+*.pem
+*.key
+credentials.json
+.env.local
+.env.production
